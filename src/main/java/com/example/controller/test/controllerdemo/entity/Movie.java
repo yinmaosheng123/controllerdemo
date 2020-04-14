@@ -20,6 +20,4 @@ public class Movie {
     @NotEmpty(message = "电影描述不能为空")
     private String description;
 
-
-
 }
