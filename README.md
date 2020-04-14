@@ -1,14 +1,14 @@
 # controllerdemo
  写一个Restful接口很简单，但是要写出一个健壮而优雅的接口并不容易，通常一个接口包含输入参数、输出响应消息及接口中异常信息输出。通过对请求输入参数在入口处进行统一校验，可以提前发现数据的问题而减少业务层数据校验模板代码，规范统一的响应格式和异常信息使你的Restful接口变得更优雅。
-####一、使用validation对输入参数进行校验
-######1.1 在maven中pom文件中引入 validation
+#### 一、使用validation对输入参数进行校验
+###### 1.1 在maven中pom文件中引入 validation
 <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
         </dependency>
-######1.2 使用@NotEmpty和@NotNull注解对需要校验的实体属性进行标注，在注解的message属性加上提示信息。
+###### 1.2 使用@NotEmpty和@NotNull注解对需要校验的实体属性进行标注，在注解的message属性加上提示信息。
       @Data
       public class Movie {
           private String id;
@@ -23,7 +23,7 @@
           private String description;
           
       }
- ######1.3controller需要加上@Validated注解，接口中需要校验的参数前面加上@Valid 注解。如下面的addMovie方法中的实体Movie前面使用了@Valid直接，表示该restful接口收到请求后会对实体Movie中的属性进行校验(使用了@NotEmpty和@NotNull等注解标注的属性)
+ ###### 1.3controller需要加上@Validated注解，接口中需要校验的参数前面加上@Valid 注解。如下面的addMovie方法中的实体Movie前面使用了@Valid直接，表示该restful接口收到请求后会对实体Movie中的属性进行校验(使用了@NotEmpty和@NotNull等注解标注的属性)
     @RestController
     @Validated
     @RequestMapping("/movies/")
