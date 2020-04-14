@@ -23,6 +23,14 @@
           private String description;
           
       }
+      
+      @Data
+      public class Actor {
+          @NotEmpty(message = "演员名称不能为空")
+          private String name;
+          @NotNull(message = "演员年龄不能为空")
+          private String age;
+      }
  ###### 1.3controller需要加上@Validated注解，接口中需要校验的参数前面加上@Valid 注解。如下面的addMovie方法中的实体Movie前面使用了@Valid直接，表示该restful接口收到请求后会对实体Movie中的属性进行校验(使用了@NotEmpty和@NotNull等注解标注的属性)
     @RestController
     @Validated
