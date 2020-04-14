@@ -41,7 +41,7 @@
         }
     }
  #### 二. 使用统一的接口数据输出格式
- ###### 2.1 定义统一响应消息体
+ ###### 2.1定义统一响应消息体
      @Data
      public class ResponseResult<T> {
          /**
@@ -120,7 +120,7 @@
              return new ResponseResult(code,message,data);
          }
      }
- ######2.1 定义状态码枚举类
+ ###### 2.2 定义状态码枚举类
      @Getter
      public enum StatusCode {
          /**
@@ -156,8 +156,8 @@
              this.message = message;
          }
      }
- ####三. 定义异常处理信息
- ######3.1 自定义异常类
+ #### 三. 定义异常处理信息
+ ###### 3.1 自定义异常类
      @Data
      public class BusinessException extends RuntimeException {
          private String message;
@@ -169,10 +169,10 @@
              super(message,throwable);
          }
      }
- ######3.2 定义异常拦截类
+ ###### 3.2 定义异常拦截类
  程序中抛出的所有异常都统一被拦截器处理然后统一输出，这样避免了输入不友好的输出信息。也可以根据不同业务定义不同的异常，在此统一处理后输出。
- ####四. 测试
- ######4.1 正常访问成功
+ #### 四. 测试
+ ###### 4.1 正常访问成功
      入参： 
      {
             "id":"0001",
@@ -193,7 +193,7 @@
          "message": "success",
          "data": null
      }
- ######4.2 异常输出
+ ###### 4.2 异常输出
        入参: {
             "id":"0001",
             "name":"",
